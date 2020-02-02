@@ -123,6 +123,7 @@ public class SellerDaoJDBC implements SellerDao {
 				Seller obj = instantiateSeller(rs, dep);				
 				return obj;
 			}
+			return null;
 		}
 		catch (SQLException e) {
 			throw new DbException(e.getMessage());
@@ -131,7 +132,6 @@ public class SellerDaoJDBC implements SellerDao {
 			DB.closeStatement(st);
 			DB.closeResultSet(rs);
 		}
-		return null;
 	}
 
 	private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException {
